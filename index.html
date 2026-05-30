@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#E8611A">
+<meta name="theme-color" content="#FF8894">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="CEED Draw">
@@ -15,23 +15,34 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 
 :root{
-  --bg:#0f0e0c;
-  --bg2:#1a1814;
-  --bg3:#242018;
-  --card:#1e1b16;
-  --card2:#252118;
-  --accent:#E8611A;
-  --accent2:#F5874A;
-  --accent-dim:rgba(232,97,26,0.15);
-  --text:#f0ebe0;
-  --text2:#9a9488;
-  --text3:#5a5450;
-  --border:rgba(255,255,255,0.06);
-  --border2:rgba(255,255,255,0.12);
-  --f:#E8611A;--f-bg:rgba(232,97,26,0.12);
-  --s:#4CAF50;--s-bg:rgba(76,175,80,0.12);
-  --a:#9575CD;--a-bg:rgba(149,117,205,0.12);
-  --done-bg:rgba(76,175,80,0.08);
+  --bg:#FFF5EE;
+  --bg2:#FFE8D8;
+  --bg3:#FFD8C0;
+  --card:#FFFFFF;
+  --card2:#FFF0E8;
+  --accent:#FF8894;
+  --accent2:#FFACA8;
+  --accent-dim:rgba(255,136,148,0.15);
+  --text:#3D2010;
+  --text2:#7A4A2A;
+  --text3:#B08060;
+  --border:rgba(255,120,80,0.15);
+  --border2:rgba(255,100,60,0.28);
+  --f:#FF8894;--f-bg:rgba(255,136,148,0.12);
+  --s:#5CC2C6;--s-bg:rgba(92,194,198,0.12);
+  --a:#C387C2;--a-bg:rgba(195,135,194,0.12);
+  --done-bg:rgba(92,194,198,0.08);
+  --peach:#FFDBBA;
+  --salmon:#FFACA8;
+  --rose:#FF8894;
+  --mint:#A1E0DD;
+  --teal:#5CC2C6;
+  --slate:#88AED2;
+  --lilac:#F7DFF6;
+  --pink:#FA85B9;
+  --purple:#C387C2;
+  --sky:#A4E9FF;
+  --blue:#5EA8E6;
   --radius:14px;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
@@ -108,7 +119,7 @@ body{
 
 /* ── TODAY BANNER ── */
 .today-banner{
-  background:linear-gradient(135deg,var(--accent) 0%,#C44800 100%);
+  background:var(--rose);
   border-radius:var(--radius);
   padding:18px 20px;
   margin-bottom:16px;
@@ -140,7 +151,7 @@ body{
   overflow:hidden;
   transition:border-color .2s;
 }
-.session-card.done{background:var(--done-bg);border-color:rgba(76,175,80,0.2)}
+.session-card.done{background:rgba(92,194,198,0.06);border-color:rgba(92,194,198,0.25)}
 .session-card.done .sc-title{opacity:.6}
 
 .sc-header{
@@ -154,7 +165,7 @@ body{
   display:flex;align-items:center;justify-content:center;
   font-size:13px;transition:all .2s;
 }
-.session-card.done .sc-check{background:var(--s);border-color:var(--s);color:white}
+.session-card.done .sc-check{background:var(--teal);border-color:var(--teal);color:white}
 .sc-info{flex:1;min-width:0}
 .sc-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
 .sc-tag.tf{color:var(--f)}.sc-tag.ts{color:var(--s)}.sc-tag.ta{color:var(--a)}
@@ -168,15 +179,15 @@ body{
 }
 .sc-body.open{display:block}
 .sc-desc{font-size:12px;color:var(--text2);line-height:1.6;padding-top:10px}
-.sc-ex25{font-size:11px;color:var(--accent);margin-top:6px;font-style:italic}
+.sc-ex25{font-size:11px;color:var(--salmon);margin-top:6px;font-style:italic}
 .sc-timer-btn{
   display:inline-flex;align-items:center;gap:6px;
   margin-top:10px;padding:8px 14px;
-  background:var(--accent-dim);border:1px solid rgba(232,97,26,0.3);
-  border-radius:8px;font-size:12px;font-weight:500;color:var(--accent);
+  background:var(--accent-dim);border:1px solid rgba(255,120,100,0.3);
+  border-radius:8px;font-size:12px;font-weight:500;color:var(--rose);
   cursor:pointer;transition:background .15s;
 }
-.sc-timer-btn:active{background:rgba(232,97,26,0.25)}
+.sc-timer-btn:active{background:rgba(255,136,148,0.25)}
 
 /* ── WEEK OVERVIEW ── */
 .phase-banner{
@@ -200,7 +211,7 @@ body{
   position:relative;
 }
 .week-tile:active{background:var(--card2)}
-.week-tile.current{border-color:var(--accent)}
+.week-tile.current{border-color:var(--rose);background:#FFF5F0}
 .week-tile.current::before{
   content:'NOW';position:absolute;top:10px;right:10px;
   font-size:8px;font-weight:700;letter-spacing:.1em;
@@ -209,10 +220,10 @@ body{
 .wt-num{font-size:10px;color:var(--text3);margin-bottom:4px;font-weight:500}
 .wt-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;line-height:1.3;margin-bottom:6px}
 .wt-phase{font-size:10px;padding:2px 7px;border-radius:10px;display:inline-block;margin-bottom:6px}
-.ph1{background:rgba(232,97,26,0.15);color:#E8611A}
-.ph2{background:rgba(76,175,80,0.15);color:#4CAF50}
-.ph3{background:rgba(149,117,205,0.15);color:#9575CD}
-.ph4{background:rgba(183,28,28,0.15);color:#ef5350}
+.ph1{background:var(--peach);color:#8C3A00}
+.ph2{background:var(--mint);color:#1A6A68}
+.ph3{background:var(--lilac);color:#6A2A7A}
+.ph4{background:var(--salmon);color:#8C2A1A}
 .wt-progress{
   height:3px;background:var(--border2);border-radius:2px;overflow:hidden;margin-top:8px;
 }
@@ -254,8 +265,8 @@ body{
   border:none;cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif;
 }
 .timer-btn.primary{background:var(--accent);color:white}
-.timer-btn.primary:active{background:#C44800}
-.timer-btn.secondary{background:var(--bg2);color:var(--text2);border:1px solid var(--border2)}
+.timer-btn.primary:active{background:#FF6070}
+.timer-btn.secondary{background:var(--bg2);color:var(--text2);border:1px solid var(--border2);}
 .timer-btn.secondary:active{background:var(--bg3)}
 
 /* ── BOTTOM NAV ── */
@@ -285,8 +296,8 @@ body{
 .stat-lbl{font-size:11px;color:var(--text3)}
 
 .streak-card{
-  background:linear-gradient(135deg,rgba(232,97,26,0.15),rgba(232,97,26,0.05));
-  border:1px solid rgba(232,97,26,0.25);
+  background:linear-gradient(135deg,#FFF0E8,#FFE8F0);
+  border:1px solid rgba(255,172,168,0.4);
   border-radius:var(--radius);padding:20px;margin-bottom:16px;
   display:flex;align-items:center;gap:16px;
 }
@@ -307,8 +318,8 @@ body{
 
 /* ── MILESTONE CARD ── */
 .milestone-card{
-  background:var(--card2);border:1px solid var(--border);
-  border-left:3px solid var(--accent);
+  background:#FFF8F2;border:1px solid var(--border);
+  border-left:3px solid var(--salmon);
   border-radius:var(--radius);padding:14px;margin-top:12px;
 }
 .mc-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:4px}
@@ -322,7 +333,80 @@ body{
 /* ── SCROLLBAR ── */
 .scroll-area::-webkit-scrollbar{width:3px}
 .scroll-area::-webkit-scrollbar-track{background:transparent}
-.scroll-area::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.scroll-area::-webkit-scrollbar-thumb{background:var(--salmon);border-radius:2px}
+
+/* ── PRACTICE TAB ── */
+.practice-mode-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.mode-btn{
+  padding:18px 14px;border-radius:var(--radius);border:1.5px solid var(--border2);
+  background:var(--card);cursor:pointer;text-align:center;
+  transition:all .2s;position:relative;overflow:hidden;
+}
+.mode-btn:active{transform:scale(0.97)}
+.mode-btn.active-mode{border-color:var(--rose);background:rgba(255,136,148,0.1)}
+.mode-btn .mb-icon{font-size:28px;margin-bottom:8px}
+.mode-btn .mb-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:3px}
+.mode-btn .mb-count{font-size:11px;color:var(--text3)}
+.mode-btn.inanimate.active-mode .mb-title{color:#8C2A2A}
+.mode-btn.animate-mode.active-mode .mb-title{color:#1A6A68}
+.mode-btn.animate-mode.active-mode{border-color:var(--teal);background:rgba(92,194,198,0.1)}
+
+.pick-card{
+  background:var(--card);border:1.5px solid var(--border2);
+  border-radius:var(--radius);padding:24px 20px;
+  text-align:center;margin-bottom:16px;
+  min-height:100px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  transition:border-color .3s;
+}
+.pick-card.has-pick{border-color:var(--accent)}
+.pick-card.has-pick.anim{border-color:var(--teal)}
+.pc-prompt{font-size:13px;color:var(--text3);margin-bottom:8px}
+.pc-category{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  padding:3px 10px;border-radius:20px;margin-bottom:16px;display:inline-block;
+}
+.pc-cat-inanimate{background:var(--peach);color:#8C3A00}
+.pc-cat-animate{background:rgba(92,194,198,0.15);color:#1A6A68}
+.pc-object{
+  font-family:'Syne',sans-serif;font-size:26px;font-weight:800;
+  line-height:1.2;margin-bottom:6px;
+  animation:fadeUp .2s ease forwards;
+}
+.pc-sub{font-size:12px;color:var(--text3);margin-bottom:20px}
+.pc-empty{font-size:14px;color:var(--text3);line-height:1.6}
+
+.pick-actions{display:flex;gap:10px;margin-bottom:20px}
+.pick-btn{
+  flex:1;padding:14px;border-radius:12px;font-size:14px;font-weight:600;
+  border:none;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all .15s;
+}
+.pick-btn.repick{background:var(--peach);color:#8C3A00;border:1px solid rgba(255,140,80,0.3)}
+.pick-btn.repick:active{background:var(--salmon)}
+.pick-btn.sketch{background:var(--accent);color:white}
+.pick-btn.sketch:active{background:#FF6070}
+.pick-btn.sketch.anim{background:var(--teal)}
+.pick-btn.sketch.anim:active{background:#3A9EA2}
+
+.history-section{margin-top:4px}
+.history-row{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;background:var(--card);
+  border:1px solid var(--border);border-radius:10px;
+  margin-bottom:6px;
+}
+.hr-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.hr-name{font-size:13px;flex:1}
+.hr-cat{font-size:10px;color:var(--text3)}
+.hr-done{font-size:11px;color:var(--teal)}
+
+@keyframes popIn{
+  0%{transform:scale(0.85);opacity:0}
+  70%{transform:scale(1.05)}
+  100%{transform:scale(1);opacity:1}
+}
+.pop-in{animation:popIn .25s ease forwards}
 </style>
 </head>
 <body>
@@ -352,6 +436,9 @@ body{
   </div>
   <div class="bn-item" id="bnProgram" onclick="showView('program')">
     <div class="bn-icon">📋</div>Program
+  </div>
+  <div class="bn-item" id="bnPractice" onclick="showView('practice')">
+    <div class="bn-icon">🎲</div>Practice
   </div>
   <div class="bn-item" id="bnStats" onclick="showView('stats')">
     <div class="bn-icon">📊</div>Progress
@@ -762,7 +849,7 @@ function layerBg(tag) {
 function showView(v, wIdx, dIdx) {
   // Update bottom nav
   document.querySelectorAll('.bn-item').forEach(el => el.classList.remove('active'));
-  const map = {today:'bnToday', program:'bnProgram', stats:'bnStats', week:'bnProgram', day:'bnProgram'};
+  const map = {today:'bnToday', program:'bnProgram', stats:'bnStats', week:'bnProgram', day:'bnProgram', practice:'bnPractice'};
   const el = document.getElementById(map[v]);
   if (el) el.classList.add('active');
 
@@ -789,6 +876,11 @@ function showView(v, wIdx, dIdx) {
     title.textContent = 'Progress';
     sub.textContent = `${doneSessions()} of ${totalSessions()} sessions done`;
     renderStats();
+  } else if (v === 'practice') {
+    back.style.display = 'none';
+    title.textContent = 'Object Picker';
+    sub.textContent = `${OBJECTS.inanimate.length} inanimate · ${OBJECTS.animate.length} animate`;
+    renderPractice();
   } else if (v === 'week') {
     back.style.display = 'flex';
     const w = WEEKS[state.viewWeek];
@@ -863,8 +955,8 @@ function renderToday() {
   w.days.forEach((d, i) => {
     const p = dayProgress(wIdx, i);
     const isToday = i === dIdx;
-    html += `<div onclick="showView('day',${wIdx},${i})" style="flex-shrink:0;background:${isToday?'var(--accent-dim)':'var(--card)'};border:1px solid ${isToday?'var(--accent)':'var(--border)'};border-radius:10px;padding:10px 14px;cursor:pointer;text-align:center;min-width:60px">
-      <div style="font-size:10px;color:${isToday?'var(--accent)':'var(--text3)'};font-weight:600">${d.name}</div>
+    html += `<div onclick="showView('day',${wIdx},${i})" style="flex-shrink:0;background:${isToday?'var(--peach)':'var(--card)'};border:1px solid ${isToday?'var(--rose)':'var(--border)'};border-radius:10px;padding:10px 14px;cursor:pointer;text-align:center;min-width:60px">
+      <div style="font-size:10px;color:${isToday?'var(--rose)':'var(--text3)'};font-weight:600">${d.name}</div>
       <div style="font-size:9px;color:var(--text3);margin-top:3px">${Math.round(p*100)}%</div>
       <div style="height:3px;background:var(--border2);border-radius:2px;margin-top:6px;overflow:hidden">
         <div style="width:${p*100}%;height:100%;background:${isToday?'var(--accent)':'var(--s)'};border-radius:2px"></div>
@@ -927,7 +1019,7 @@ function renderProgram() {
   PHASES.forEach(phase => {
     html += `
     <div class="phase-banner">
-      <div class="pb-phase" style="color:${phase.id===1?'#E8611A':phase.id===2?'#4CAF50':phase.id===3?'#9575CD':'#ef5350'}">Phase ${phase.id}</div>
+      <div class="pb-phase" style="color:${phase.id===1?'#8C3A00':phase.id===2?'#1A6A68':phase.id===3?'#6A2A7A':'#8C2A1A'}">Phase ${phase.id}</div>
       <div class="pb-title">${phase.name}</div>
       <div class="pb-sub">Weeks ${phase.weeks[0]+1}–${phase.weeks[1]+1}</div>
     </div>`;
@@ -961,7 +1053,7 @@ function renderWeek() {
 
   let html = `
   <div class="phase-banner">
-    <div class="pb-phase" style="color:${wIdx<2?'#E8611A':wIdx<4?'#4CAF50':wIdx<6?'#9575CD':'#ef5350'}">Phase ${phase.id} · Week ${w.num}</div>
+    <div class="pb-phase" style="color:${wIdx<2?'var(--rose)':wIdx<4?'var(--teal)':wIdx<6?'var(--purple)':'var(--salmon)'}">Phase ${phase.id} · Week ${w.num}</div>
     <div class="pb-title">${w.theme}</div>
     <div class="pb-tags">`;
   w.focus.forEach(f => { html += `<div class="pb-tag">${f}</div>`; });
@@ -1118,9 +1210,9 @@ function renderStats() {
     html += `
     <div onclick="showView('week',${wIdx})" style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px;cursor:pointer;text-align:center">
       <div style="font-size:10px;color:var(--text3);margin-bottom:4px">W${w.num}</div>
-      <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800;color:${wpct===100?'var(--s)':'var(--text)'}">${wpct}%</div>
+      <div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800;color:${wpct===100?'var(--teal)':'var(--text)'}">${wpct}%</div>
       <div style="height:3px;background:var(--border2);border-radius:2px;margin-top:6px;overflow:hidden">
-        <div style="width:${wpct}%;height:100%;background:${wpct===100?'var(--s)':'var(--accent)'};border-radius:2px"></div>
+        <div style="width:${wpct}%;height:100%;background:${wpct===100?'var(--teal)':'var(--rose)'};border-radius:2px"></div>
       </div>
     </div>`;
   });
@@ -1129,7 +1221,7 @@ function renderStats() {
   // CEED exam tip
   html += `
   <div class="milestone-card">
-    <div class="mc-label">📝 CEED Reminder</div>
+    <div class="mc-label" style="color:var(--rose)">📝 CEED Reminder</div>
     <div class="mc-text"><strong>20 min per question.</strong> Never go over. Never leave blank. Ideation on back. Box every visual. Always show a human in Problem ID. HB to construct, 4B to finish.</div>
   </div>`;
 
@@ -1139,12 +1231,13 @@ function renderStats() {
 // ═══════════════════════════════════════
 // TIMER
 // ═══════════════════════════════════════
-let timerState = {mins:0, secs:0, total:0, running:false, interval:null};
+let timerState = {mins:0, secs:0, total:0, remaining:0, running:false, interval:null};
 
 function openTimer(mins, task) {
   timerState.mins = mins;
   timerState.secs = 0;
   timerState.total = mins * 60;
+  timerState.remaining = mins * 60;
   timerState.running = false;
   clearInterval(timerState.interval);
 
@@ -1174,30 +1267,24 @@ function toggleTimer() {
 }
 
 function tickTimer() {
-  const elapsed = (timerState.total - (timerState.mins * 60 + timerState.secs)) + 1;
-  let remaining = timerState.total - elapsed;
-  if (remaining <= 0) {
+  timerState.remaining--;
+  if (timerState.remaining <= 0) {
+    timerState.remaining = 0;
     clearInterval(timerState.interval);
     timerState.running = false;
-    timerState.mins = 0;
-    timerState.secs = 0;
     document.getElementById('timerStartBtn').textContent = '✓ Done!';
-    // vibrate if supported
     if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
-    updateTimerDisplay();
-    return;
   }
-  timerState.mins = Math.floor(remaining / 60);
-  timerState.secs = remaining % 60;
+  timerState.mins = Math.floor(timerState.remaining / 60);
+  timerState.secs = timerState.remaining % 60;
   updateTimerDisplay();
 }
 
 function updateTimerDisplay() {
   document.getElementById('timerMins').textContent = timerState.mins;
   document.getElementById('timerSecs').textContent = ':' + String(timerState.secs).padStart(2,'0');
-
-  const elapsed = timerState.total - (timerState.mins * 60 + timerState.secs);
-  const pct = elapsed / timerState.total;
+  const elapsed = timerState.total - timerState.remaining;
+  const pct = timerState.total > 0 ? elapsed / timerState.total : 0;
   const circumference = 515;
   const offset = circumference - (pct * circumference);
   document.getElementById('timerRing').style.strokeDashoffset = offset;
@@ -1210,6 +1297,599 @@ function setCurrentWeek(wIdx) {
   state.currentWeek = wIdx;
   saveState();
   showView('today');
+}
+
+// ═══════════════════════════════════════
+// OBJECT MASTER LIST
+// ═══════════════════════════════════════
+const OBJECTS = {
+  inanimate: [
+    // Cat 1: Kitchen & Household
+    {name:"Coffee mug",cat:"Kitchen & Household"},
+    {name:"Tea cup",cat:"Kitchen & Household"},
+    {name:"Glass bottle",cat:"Kitchen & Household"},
+    {name:"Plastic bottle",cat:"Kitchen & Household"},
+    {name:"Bucket (40L plastic)",cat:"Kitchen & Household"},
+    {name:"Toaster",cat:"Kitchen & Household"},
+    {name:"Hair dryer",cat:"Kitchen & Household"},
+    {name:"Electric kettle",cat:"Kitchen & Household"},
+    {name:"Blender / Mixer grinder",cat:"Kitchen & Household"},
+    {name:"Coffee machine",cat:"Kitchen & Household"},
+    {name:"Microwave",cat:"Kitchen & Household"},
+    {name:"Kitchen knife",cat:"Kitchen & Household"},
+    {name:"Cutting board",cat:"Kitchen & Household"},
+    {name:"Teapot",cat:"Kitchen & Household"},
+    {name:"Thermos flask",cat:"Kitchen & Household"},
+    {name:"Pressure cooker",cat:"Kitchen & Household"},
+    {name:"Tiffin box / Lunch box",cat:"Kitchen & Household"},
+    // Cat 2: Bathroom & Personal Care
+    {name:"Toothbrush",cat:"Bathroom & Personal Care"},
+    {name:"Soap dispenser",cat:"Bathroom & Personal Care"},
+    {name:"Shampoo bottle",cat:"Bathroom & Personal Care"},
+    {name:"Perfume bottle",cat:"Bathroom & Personal Care"},
+    {name:"Hair brush / Comb",cat:"Bathroom & Personal Care"},
+    {name:"Shower head",cat:"Bathroom & Personal Care"},
+    {name:"Tap / Faucet",cat:"Bathroom & Personal Care"},
+    {name:"Hand mirror",cat:"Bathroom & Personal Care"},
+    {name:"Wall mirror",cat:"Bathroom & Personal Care"},
+    {name:"Soap dish",cat:"Bathroom & Personal Care"},
+    {name:"Kids' water bottle",cat:"Bathroom & Personal Care"},
+    // Cat 3: Furniture & Home
+    {name:"Office chair",cat:"Furniture & Home"},
+    {name:"Dining chair",cat:"Furniture & Home"},
+    {name:"Folding chair",cat:"Furniture & Home"},
+    {name:"Study table",cat:"Furniture & Home"},
+    {name:"Coffee table",cat:"Furniture & Home"},
+    {name:"Desk lamp",cat:"Furniture & Home"},
+    {name:"Floor lamp",cat:"Furniture & Home"},
+    {name:"Bookshelf",cat:"Furniture & Home"},
+    {name:"Sofa",cat:"Furniture & Home"},
+    {name:"Stool",cat:"Furniture & Home"},
+    {name:"Door handle",cat:"Furniture & Home"},
+    {name:"Hanger",cat:"Furniture & Home"},
+    {name:"Cushion / Pillow",cat:"Furniture & Home"},
+    {name:"Waste bin / Dustbin",cat:"Furniture & Home"},
+    {name:"Vase",cat:"Furniture & Home"},
+    // Cat 4: Stationery
+    {name:"Pen / Pencil",cat:"Stationery & Desk"},
+    {name:"Stapler",cat:"Stationery & Desk"},
+    {name:"Scissors",cat:"Stationery & Desk"},
+    {name:"Paper clip / Binder clip",cat:"Stationery & Desk"},
+    {name:"Sharpener",cat:"Stationery & Desk"},
+    {name:"Eraser",cat:"Stationery & Desk"},
+    {name:"Ruler",cat:"Stationery & Desk"},
+    {name:"Tape dispenser",cat:"Stationery & Desk"},
+    {name:"Calculator",cat:"Stationery & Desk"},
+    {name:"Notebook",cat:"Stationery & Desk"},
+    {name:"File folder",cat:"Stationery & Desk"},
+    {name:"Desk organizer",cat:"Stationery & Desk"},
+    {name:"Punch machine",cat:"Stationery & Desk"},
+    // Cat 5: Electronics
+    {name:"Mobile phone",cat:"Electronics & Gadgets"},
+    {name:"Headphones",cat:"Electronics & Gadgets"},
+    {name:"Earphones",cat:"Electronics & Gadgets"},
+    {name:"Bluetooth speaker",cat:"Electronics & Gadgets"},
+    {name:"Computer mouse",cat:"Electronics & Gadgets"},
+    {name:"Keyboard",cat:"Electronics & Gadgets"},
+    {name:"Remote control",cat:"Electronics & Gadgets"},
+    {name:"Camera",cat:"Electronics & Gadgets"},
+    {name:"Charger / Power adapter",cat:"Electronics & Gadgets"},
+    {name:"USB drive",cat:"Electronics & Gadgets"},
+    {name:"Laptop",cat:"Electronics & Gadgets"},
+    {name:"Tablet",cat:"Electronics & Gadgets"},
+    {name:"Smartwatch",cat:"Electronics & Gadgets"},
+    {name:"Electric fan",cat:"Electronics & Gadgets"},
+    {name:"Radio",cat:"Electronics & Gadgets"},
+    // Cat 6: Tools & Mechanical
+    {name:"Hand drill (cordless)",cat:"Tools & Mechanical"},
+    {name:"Pliers / Pincers",cat:"Tools & Mechanical"},
+    {name:"Screwdriver",cat:"Tools & Mechanical"},
+    {name:"Hammer",cat:"Tools & Mechanical"},
+    {name:"Wrench / Spanner",cat:"Tools & Mechanical"},
+    {name:"Measuring tape",cat:"Tools & Mechanical"},
+    {name:"Flashlight / Torch",cat:"Tools & Mechanical"},
+    {name:"Spray bottle",cat:"Tools & Mechanical"},
+    {name:"Watering can",cat:"Tools & Mechanical"},
+    {name:"Lock and key",cat:"Tools & Mechanical"},
+    {name:"Bicycle pump",cat:"Tools & Mechanical"},
+    // Cat 7: Transportation (original)
+    {name:"Bicycle",cat:"Transportation"},
+    {name:"Motorcycle / Bike",cat:"Transportation"},
+    {name:"Helmet",cat:"Transportation"},
+    {name:"Steering wheel",cat:"Transportation"},
+    {name:"Wheel / Tyre",cat:"Transportation"},
+    {name:"Car door handle",cat:"Transportation"},
+    // Cat 8: Sports & Fitness
+    {name:"Sports water bottle",cat:"Sports & Fitness"},
+    {name:"Dumbbell",cat:"Sports & Fitness"},
+    {name:"Yoga mat (rolled)",cat:"Sports & Fitness"},
+    {name:"Cricket bat",cat:"Sports & Fitness"},
+    {name:"Football",cat:"Sports & Fitness"},
+    {name:"Basketball",cat:"Sports & Fitness"},
+    {name:"Tennis ball",cat:"Sports & Fitness"},
+    {name:"Badminton racket",cat:"Sports & Fitness"},
+    {name:"Skipping rope",cat:"Sports & Fitness"},
+    {name:"Exercise bike",cat:"Sports & Fitness"},
+    {name:"Running shoes",cat:"Sports & Fitness"},
+    // Cat 9: Toys & Leisure
+    {name:"Soft toy / Teddy bear",cat:"Toys & Leisure"},
+    {name:"Kite",cat:"Toys & Leisure"},
+    {name:"Building blocks",cat:"Toys & Leisure"},
+    {name:"Guitar",cat:"Toys & Leisure"},
+    {name:"Keyboard (musical)",cat:"Toys & Leisure"},
+    {name:"Drums",cat:"Toys & Leisure"},
+    {name:"Playing cards",cat:"Toys & Leisure"},
+    {name:"Rubik's cube",cat:"Toys & Leisure"},
+    // Cat 10: Outdoor & Garden
+    {name:"Flower pot",cat:"Outdoor & Garden"},
+    {name:"Garden shovel",cat:"Outdoor & Garden"},
+    {name:"Garden rake",cat:"Outdoor & Garden"},
+    {name:"Umbrella (closed)",cat:"Outdoor & Garden"},
+    {name:"Umbrella (open)",cat:"Outdoor & Garden"},
+    {name:"Backpack / School bag",cat:"Outdoor & Garden"},
+    {name:"Suitcase / Luggage",cat:"Outdoor & Garden"},
+    {name:"Picnic basket",cat:"Outdoor & Garden"},
+    {name:"Lantern",cat:"Outdoor & Garden"},
+    // Cat 11: Medical
+    {name:"Thermometer",cat:"Medical & Health"},
+    {name:"Medicine bottle",cat:"Medical & Health"},
+    {name:"First aid box",cat:"Medical & Health"},
+    {name:"Syringe",cat:"Medical & Health"},
+    {name:"Stethoscope",cat:"Medical & Health"},
+    {name:"Bandage roll",cat:"Medical & Health"},
+    {name:"Hand sanitizer bottle",cat:"Medical & Health"},
+    {name:"Face mask",cat:"Medical & Health"},
+    // Cat 12: Food & Packaging
+    {name:"Soda can",cat:"Food & Packaging"},
+    {name:"Tetra pack / Carton",cat:"Food & Packaging"},
+    {name:"Glass jar with lid",cat:"Food & Packaging"},
+    {name:"Food container / Tupperware",cat:"Food & Packaging"},
+    {name:"Wine glass",cat:"Food & Packaging"},
+    {name:"Champagne glass",cat:"Food & Packaging"},
+    {name:"Plate / Bowl",cat:"Food & Packaging"},
+    {name:"Cutlery set (spoon/fork/knife)",cat:"Food & Packaging"},
+    {name:"Salt / pepper shaker",cat:"Food & Packaging"},
+    // Cat 13: Simple Geometric
+    {name:"Cardboard box",cat:"Simple Geometric"},
+    {name:"Gift box",cat:"Simple Geometric"},
+    {name:"Cylinder object",cat:"Simple Geometric"},
+    {name:"Sphere object",cat:"Simple Geometric"},
+    {name:"Cone",cat:"Simple Geometric"},
+    {name:"Pyramid",cat:"Simple Geometric"},
+    {name:"Toothpaste tube",cat:"Simple Geometric"},
+    {name:"Paint tube",cat:"Simple Geometric"},
+    // Cat 14: Complex Objects
+    {name:"Old-style telephone",cat:"Complex Objects"},
+    {name:"Cordless grinder",cat:"Complex Objects"},
+    {name:"Sewing machine",cat:"Complex Objects"},
+    {name:"Typewriter",cat:"Complex Objects"},
+    {name:"Film camera",cat:"Complex Objects"},
+    {name:"Projector",cat:"Complex Objects"},
+    {name:"Printer",cat:"Complex Objects"},
+    {name:"Washing machine (front-loading)",cat:"Complex Objects"},
+    {name:"Washing machine (top-loading)",cat:"Complex Objects"},
+    // Cat 23: Architecture
+    {name:"Single-story house",cat:"Architecture"},
+    {name:"Multi-story apartment",cat:"Architecture"},
+    {name:"School building",cat:"Architecture"},
+    {name:"Office building",cat:"Architecture"},
+    {name:"Temple",cat:"Architecture"},
+    {name:"Church",cat:"Architecture"},
+    {name:"Mosque",cat:"Architecture"},
+    {name:"Hospital",cat:"Architecture"},
+    {name:"Railway station",cat:"Architecture"},
+    {name:"Hut / Rural house",cat:"Architecture"},
+    {name:"Single door",cat:"Architecture"},
+    {name:"Double door",cat:"Architecture"},
+    {name:"Window",cat:"Architecture"},
+    {name:"Bay window",cat:"Architecture"},
+    {name:"Straight staircase",cat:"Architecture"},
+    {name:"Spiral staircase",cat:"Architecture"},
+    {name:"Balcony / Terrace",cat:"Architecture"},
+    {name:"Pillar / Column",cat:"Architecture"},
+    {name:"Arch",cat:"Architecture"},
+    {name:"Park bench",cat:"Architecture"},
+    {name:"Street lamp post",cat:"Architecture"},
+    {name:"Mailbox / Postbox",cat:"Architecture"},
+    {name:"Billboard / Signboard",cat:"Architecture"},
+    {name:"Traffic light",cat:"Architecture"},
+    {name:"Bus stop sign",cat:"Architecture"},
+    {name:"Public dustbin",cat:"Architecture"},
+    {name:"Telephone booth",cat:"Architecture"},
+    {name:"Fire hydrant",cat:"Architecture"},
+    // Cat 24: Vehicles Expanded
+    {name:"Bicycle",cat:"Vehicles"},
+    {name:"Motorcycle",cat:"Vehicles"},
+    {name:"Scooter",cat:"Vehicles"},
+    {name:"Auto-rickshaw",cat:"Vehicles"},
+    {name:"Car (sedan)",cat:"Vehicles"},
+    {name:"Car (SUV)",cat:"Vehicles"},
+    {name:"City bus",cat:"Vehicles"},
+    {name:"School bus",cat:"Vehicles"},
+    {name:"Delivery truck",cat:"Vehicles"},
+    {name:"Heavy truck",cat:"Vehicles"},
+    {name:"Tractor",cat:"Vehicles"},
+    {name:"Ambulance",cat:"Vehicles"},
+    {name:"Police car",cat:"Vehicles"},
+    {name:"Fire truck",cat:"Vehicles"},
+    {name:"Garbage truck",cat:"Vehicles"},
+    {name:"Train engine",cat:"Vehicles"},
+    {name:"Train compartment",cat:"Vehicles"},
+    {name:"Metro train",cat:"Vehicles"},
+    {name:"Tram",cat:"Vehicles"},
+    {name:"Commercial airplane",cat:"Vehicles"},
+    {name:"Helicopter",cat:"Vehicles"},
+    {name:"Hot air balloon",cat:"Vehicles"},
+    {name:"Rowing boat",cat:"Vehicles"},
+    {name:"Motor boat",cat:"Vehicles"},
+    {name:"Sailboat",cat:"Vehicles"},
+  ],
+  animate: [
+    // Cat 15: Human Figures — basic poses
+    {name:"Standing figure (front view)",cat:"Human Figure"},
+    {name:"Standing figure (side view)",cat:"Human Figure"},
+    {name:"Standing figure (back view)",cat:"Human Figure"},
+    {name:"Standing figure (3/4 view)",cat:"Human Figure"},
+    {name:"Walking figure",cat:"Human Figure"},
+    {name:"Running figure",cat:"Human Figure"},
+    {name:"Sitting on chair",cat:"Human Figure"},
+    {name:"Sitting cross-legged on floor",cat:"Human Figure"},
+    {name:"Bending figure",cat:"Human Figure"},
+    {name:"Reaching figure",cat:"Human Figure"},
+    {name:"Lying down figure",cat:"Human Figure"},
+    {name:"Jumping figure",cat:"Human Figure"},
+    // Actions
+    {name:"Climbing figure",cat:"Human Figure — Action"},
+    {name:"Cycling pose",cat:"Human Figure — Action"},
+    {name:"Driving pose",cat:"Human Figure — Action"},
+    {name:"Working at desk",cat:"Human Figure — Action"},
+    {name:"Cooking",cat:"Human Figure — Action"},
+    {name:"Eating / Drinking",cat:"Human Figure — Action"},
+    {name:"Reading a book",cat:"Human Figure — Action"},
+    {name:"Using a phone",cat:"Human Figure — Action"},
+    {name:"Writing",cat:"Human Figure — Action"},
+    {name:"Shopping (carrying bags)",cat:"Human Figure — Action"},
+    {name:"Sweeping / Cleaning",cat:"Human Figure — Action"},
+    {name:"Gardening",cat:"Human Figure — Action"},
+    {name:"Playing sports",cat:"Human Figure — Action"},
+    {name:"Dancing",cat:"Human Figure — Action"},
+    {name:"Exercising (yoga / gym)",cat:"Human Figure — Action"},
+    {name:"Talking / Conversing",cat:"Human Figure — Action"},
+    {name:"Waiting (bus stop / queue)",cat:"Human Figure — Action"},
+    // Age groups
+    {name:"Toddler",cat:"Human Figure — Age"},
+    {name:"School-age child",cat:"Human Figure — Age"},
+    {name:"Teenager",cat:"Human Figure — Age"},
+    {name:"Young adult",cat:"Human Figure — Age"},
+    {name:"Middle-aged person",cat:"Human Figure — Age"},
+    {name:"Elderly person",cat:"Human Figure — Age"},
+    // Professions
+    {name:"Office worker",cat:"Human Figure — Profession"},
+    {name:"Doctor / Nurse",cat:"Human Figure — Profession"},
+    {name:"Teacher",cat:"Human Figure — Profession"},
+    {name:"Student",cat:"Human Figure — Profession"},
+    {name:"Shopkeeper",cat:"Human Figure — Profession"},
+    {name:"Farmer",cat:"Human Figure — Profession"},
+    {name:"Security guard",cat:"Human Figure — Profession"},
+    {name:"Chef",cat:"Human Figure — Profession"},
+    {name:"Construction worker",cat:"Human Figure — Profession"},
+    {name:"Delivery person",cat:"Human Figure — Profession"},
+    {name:"Street vendor",cat:"Human Figure — Profession"},
+    // Cat 16: Expressions
+    {name:"Happy / Smiling expression",cat:"Human Expression"},
+    {name:"Laughing expression",cat:"Human Expression"},
+    {name:"Sad expression",cat:"Human Expression"},
+    {name:"Crying expression",cat:"Human Expression"},
+    {name:"Angry / Frustrated expression",cat:"Human Expression"},
+    {name:"Surprised / Shocked expression",cat:"Human Expression"},
+    {name:"Confused / Puzzled expression",cat:"Human Expression"},
+    {name:"Scared / Fearful expression",cat:"Human Expression"},
+    {name:"Disgusted expression",cat:"Human Expression"},
+    {name:"Bored / Tired expression",cat:"Human Expression"},
+    {name:"Excited / Enthusiastic expression",cat:"Human Expression"},
+    {name:"Worried / Anxious expression",cat:"Human Expression"},
+    // Cat 17: Hands
+    {name:"Open palm (front)",cat:"Hands & Gestures"},
+    {name:"Open palm (back)",cat:"Hands & Gestures"},
+    {name:"Fist (closed)",cat:"Hands & Gestures"},
+    {name:"Pointing hand",cat:"Hands & Gestures"},
+    {name:"Thumbs up",cat:"Hands & Gestures"},
+    {name:"Thumbs down",cat:"Hands & Gestures"},
+    {name:"OK gesture",cat:"Hands & Gestures"},
+    {name:"Peace sign",cat:"Hands & Gestures"},
+    {name:"Hand holding pen",cat:"Hands & Gestures"},
+    {name:"Hand holding cup",cat:"Hands & Gestures"},
+    {name:"Hand holding phone",cat:"Hands & Gestures"},
+    {name:"Hand holding bag",cat:"Hands & Gestures"},
+    {name:"Gripping a handle",cat:"Hands & Gestures"},
+    {name:"Pinching gesture",cat:"Hands & Gestures"},
+    {name:"Waving hand",cat:"Hands & Gestures"},
+    {name:"Typing position (hands)",cat:"Hands & Gestures"},
+    {name:"Praying / Namaste hands",cat:"Hands & Gestures"},
+    {name:"Clapping",cat:"Hands & Gestures"},
+    {name:"Hand on hip",cat:"Hands & Gestures"},
+    {name:"Crossed arms",cat:"Hands & Gestures"},
+    // Cat 18: Feet & Body Language
+    {name:"Standing barefoot",cat:"Feet & Body Language"},
+    {name:"Standing in shoes",cat:"Feet & Body Language"},
+    {name:"Walking (heel strike)",cat:"Feet & Body Language"},
+    {name:"Running feet",cat:"Feet & Body Language"},
+    {name:"Kneeling",cat:"Feet & Body Language"},
+    {name:"Confident posture",cat:"Feet & Body Language"},
+    {name:"Tired / Slouched posture",cat:"Feet & Body Language"},
+    {name:"Nervous fidgeting",cat:"Feet & Body Language"},
+    // Cat 19: Human Interactions
+    {name:"Two people shaking hands",cat:"Human Interaction"},
+    {name:"Two people hugging",cat:"Human Interaction"},
+    {name:"High-five",cat:"Human Interaction"},
+    {name:"Helping someone up",cat:"Human Interaction"},
+    {name:"Two people arguing",cat:"Human Interaction"},
+    {name:"Teacher and student",cat:"Human Interaction"},
+    {name:"Doctor and patient",cat:"Human Interaction"},
+    {name:"Customer and shopkeeper",cat:"Human Interaction"},
+    {name:"Parent and child (holding hands)",cat:"Human Interaction"},
+    {name:"Parent carrying child",cat:"Human Interaction"},
+    {name:"Friends chatting",cat:"Human Interaction"},
+    {name:"Queue / Line formation",cat:"Human Interaction"},
+    {name:"Family sitting together",cat:"Human Interaction"},
+    {name:"Classroom scene",cat:"Human Interaction"},
+    {name:"Market crowd",cat:"Human Interaction"},
+    {name:"Restaurant / Cafe scene",cat:"Human Interaction"},
+    {name:"Bus / Train interior",cat:"Human Interaction"},
+    // Cat 20: Animals & Birds
+    {name:"Dog (sitting)",cat:"Animals & Birds"},
+    {name:"Dog (standing)",cat:"Animals & Birds"},
+    {name:"Dog (running)",cat:"Animals & Birds"},
+    {name:"Cat (sitting)",cat:"Animals & Birds"},
+    {name:"Cat (stretching)",cat:"Animals & Birds"},
+    {name:"Cow / Buffalo",cat:"Animals & Birds"},
+    {name:"Horse",cat:"Animals & Birds"},
+    {name:"Goat / Sheep",cat:"Animals & Birds"},
+    {name:"Chicken / Hen",cat:"Animals & Birds"},
+    {name:"Elephant",cat:"Animals & Birds"},
+    {name:"Tiger",cat:"Animals & Birds"},
+    {name:"Lion",cat:"Animals & Birds"},
+    {name:"Monkey",cat:"Animals & Birds"},
+    {name:"Deer",cat:"Animals & Birds"},
+    {name:"Rabbit",cat:"Animals & Birds"},
+    {name:"Snake",cat:"Animals & Birds"},
+    {name:"Tortoise",cat:"Animals & Birds"},
+    {name:"Sparrow",cat:"Animals & Birds"},
+    {name:"Crow / Raven",cat:"Animals & Birds"},
+    {name:"Pigeon / Dove",cat:"Animals & Birds"},
+    {name:"Peacock (closed)",cat:"Animals & Birds"},
+    {name:"Peacock (open)",cat:"Animals & Birds"},
+    {name:"Parrot",cat:"Animals & Birds"},
+    {name:"Eagle / Hawk",cat:"Animals & Birds"},
+    {name:"Butterfly",cat:"Animals & Birds"},
+    {name:"Bee",cat:"Animals & Birds"},
+    {name:"Fish",cat:"Animals & Birds"},
+    {name:"Frog",cat:"Animals & Birds"},
+    // Cat 21: Plants & Vegetation
+    {name:"Banyan tree",cat:"Plants & Vegetation"},
+    {name:"Coconut / Palm tree",cat:"Plants & Vegetation"},
+    {name:"Mango tree",cat:"Plants & Vegetation"},
+    {name:"Pine / Conifer tree",cat:"Plants & Vegetation"},
+    {name:"Deciduous tree (with leaves)",cat:"Plants & Vegetation"},
+    {name:"Deciduous tree (bare)",cat:"Plants & Vegetation"},
+    {name:"Bonsai tree",cat:"Plants & Vegetation"},
+    {name:"Rose",cat:"Plants & Vegetation"},
+    {name:"Sunflower",cat:"Plants & Vegetation"},
+    {name:"Lotus",cat:"Plants & Vegetation"},
+    {name:"Marigold",cat:"Plants & Vegetation"},
+    {name:"Cactus",cat:"Plants & Vegetation"},
+    {name:"Succulent",cat:"Plants & Vegetation"},
+    {name:"Fern",cat:"Plants & Vegetation"},
+    {name:"Aloe vera",cat:"Plants & Vegetation"},
+    {name:"Potted plant",cat:"Plants & Vegetation"},
+    {name:"Bamboo",cat:"Plants & Vegetation"},
+    {name:"Mushroom",cat:"Plants & Vegetation"},
+    {name:"Simple oval leaf",cat:"Plants & Vegetation"},
+    {name:"Maple leaf",cat:"Plants & Vegetation"},
+    {name:"Fern leaf",cat:"Plants & Vegetation"},
+    // Cat 22: Food Items
+    {name:"Apple",cat:"Food Items"},
+    {name:"Banana",cat:"Food Items"},
+    {name:"Orange",cat:"Food Items"},
+    {name:"Mango",cat:"Food Items"},
+    {name:"Grapes (bunch)",cat:"Food Items"},
+    {name:"Watermelon (whole)",cat:"Food Items"},
+    {name:"Watermelon (slice)",cat:"Food Items"},
+    {name:"Pineapple",cat:"Food Items"},
+    {name:"Pomegranate",cat:"Food Items"},
+    {name:"Strawberry",cat:"Food Items"},
+    {name:"Tomato",cat:"Food Items"},
+    {name:"Carrot",cat:"Food Items"},
+    {name:"Brinjal / Eggplant",cat:"Food Items"},
+    {name:"Capsicum / Bell pepper",cat:"Food Items"},
+    {name:"Cauliflower",cat:"Food Items"},
+    {name:"Corn",cat:"Food Items"},
+    {name:"Bread loaf",cat:"Food Items"},
+    {name:"Roti / Chapati",cat:"Food Items"},
+    {name:"Pizza (slice)",cat:"Food Items"},
+    {name:"Burger",cat:"Food Items"},
+    {name:"Sandwich",cat:"Food Items"},
+    {name:"Ice cream cone",cat:"Food Items"},
+    {name:"Samosa",cat:"Food Items"},
+    // Cat 25: Nature & Landscapes
+    {name:"Mountain range",cat:"Nature & Landscape"},
+    {name:"Single mountain peak",cat:"Nature & Landscape"},
+    {name:"Hills",cat:"Nature & Landscape"},
+    {name:"Valley",cat:"Nature & Landscape"},
+    {name:"River / Stream",cat:"Nature & Landscape"},
+    {name:"Waterfall",cat:"Nature & Landscape"},
+    {name:"Beach / Seashore",cat:"Nature & Landscape"},
+    {name:"Ocean waves",cat:"Nature & Landscape"},
+    {name:"Sun (with rays)",cat:"Nature & Landscape"},
+    {name:"Moon (crescent)",cat:"Nature & Landscape"},
+    {name:"Clouds (cumulus)",cat:"Nature & Landscape"},
+    {name:"Storm clouds",cat:"Nature & Landscape"},
+    {name:"Rainbow",cat:"Nature & Landscape"},
+    {name:"Rain (falling)",cat:"Nature & Landscape"},
+    {name:"Rocks / Stones",cat:"Nature & Landscape"},
+    {name:"Sand dunes",cat:"Nature & Landscape"},
+    {name:"Grass field",cat:"Nature & Landscape"},
+    // Cat 26: Scenes & Environments
+    {name:"Children's park",cat:"Scenes & Environments"},
+    {name:"Classroom interior",cat:"Scenes & Environments"},
+    {name:"Living room / Drawing room",cat:"Scenes & Environments"},
+    {name:"Kitchen scene",cat:"Scenes & Environments"},
+    {name:"Hospital waiting room",cat:"Scenes & Environments"},
+    {name:"Library",cat:"Scenes & Environments"},
+    {name:"Restaurant / Cafe",cat:"Scenes & Environments"},
+    {name:"Office workspace",cat:"Scenes & Environments"},
+    {name:"Vegetable market",cat:"Scenes & Environments"},
+    {name:"Street scene",cat:"Scenes & Environments"},
+    {name:"Railway platform",cat:"Scenes & Environments"},
+    {name:"Airport waiting area",cat:"Scenes & Environments"},
+    {name:"Garden / Terrace",cat:"Scenes & Environments"},
+    {name:"Beach scene",cat:"Scenes & Environments"},
+    {name:"Farm / Agricultural field",cat:"Scenes & Environments"},
+    {name:"Construction site",cat:"Scenes & Environments"},
+    {name:"Festival scene",cat:"Scenes & Environments"},
+    {name:"Temple / Religious place",cat:"Scenes & Environments"},
+    {name:"Gym / Fitness center",cat:"Scenes & Environments"},
+  ]
+};
+
+// ═══════════════════════════════════════
+// PRACTICE STATE
+// ═══════════════════════════════════════
+let practiceState = {
+  mode: null,       // 'inanimate' | 'animate'
+  current: null,    // {name, cat}
+  history: []       // last 5 picks
+};
+
+function pickRandom(mode) {
+  const pool = OBJECTS[mode];
+  let pick;
+  // avoid immediate repeat
+  do { pick = pool[Math.floor(Math.random() * pool.length)]; }
+  while (practiceState.current && pick.name === practiceState.current.name && pool.length > 1);
+  return pick;
+}
+
+function setPracticeMode(mode) {
+  practiceState.mode = mode;
+  practiceState.current = pickRandom(mode);
+  renderPractice();
+}
+
+function repick() {
+  if (!practiceState.mode) return;
+  if (practiceState.current) {
+    practiceState.history.unshift({...practiceState.current, sketched: false});
+    if (practiceState.history.length > 6) practiceState.history.pop();
+  }
+  practiceState.current = pickRandom(practiceState.mode);
+  // animate the card
+  const card = document.getElementById('pickCard');
+  if (card) {
+    card.classList.remove('pop-in');
+    void card.offsetWidth;
+    card.classList.add('pop-in');
+  }
+  renderPickContent();
+}
+
+function startSketching() {
+  if (!practiceState.current) return;
+  practiceState.history.unshift({...practiceState.current, sketched: true});
+  if (practiceState.history.length > 6) practiceState.history.pop();
+  const obj = practiceState.current;
+  practiceState.current = null;
+  // open timer with the object name
+  openTimer(10, 'Sketch: ' + obj.name);
+  renderPickContent();
+}
+
+// ═══════════════════════════════════════
+// PRACTICE VIEW
+// ═══════════════════════════════════════
+function renderPractice() {
+  const isAnim = practiceState.mode === 'animate';
+  const isInanim = practiceState.mode === 'inanimate';
+
+  let html = `
+  <div style="margin-bottom:14px">
+    <div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:4px">Object Picker 🎲</div>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:12px">Pick a category, get a random subject, start sketching.</div>
+    <div id="pickCardWrap">` + renderPickHTML() + `</div>
+  </div>
+
+  <div class="practice-mode-row">
+    <div class="mode-btn inanimate ${isInanim?'active-mode':''}" onclick="setPracticeMode('inanimate')">
+      <div class="mb-icon">🪑</div>
+      <div class="mb-title">Inanimate</div>
+      <div class="mb-count">${OBJECTS.inanimate.length} objects</div>
+    </div>
+    <div class="mode-btn animate-mode ${isAnim?'active-mode':''}" onclick="setPracticeMode('animate')">
+      <div class="mb-icon">🧑</div>
+      <div class="mb-title">Animate</div>
+      <div class="mb-count">${OBJECTS.animate.length} subjects</div>
+    </div>
+  </div>`;
+
+
+
+  // History
+  if (practiceState.history.length > 0) {
+    html += `<div class="sec-hd" style="margin-top:4px">Recent picks</div>`;
+    practiceState.history.forEach(h => {
+      const col = h.cat && OBJECTS.animate.find(o=>o.name===h.name) ? 'var(--teal)' : 'var(--salmon)';
+      html += `
+      <div class="history-row">
+        <div class="hr-dot" style="background:${col}"></div>
+        <div class="hr-name">${h.name}</div>
+        <div class="hr-cat">${h.cat}</div>
+        ${h.sketched ? `<div class="hr-done">✓ sketched</div>` : `<div style="font-size:10px;color:var(--text3)">skipped</div>`}
+      </div>`;
+    });
+  }
+
+  document.getElementById('mainContent').innerHTML = html;
+}
+
+function renderPickHTML() {
+  const pick = practiceState.current;
+  const isAnim = practiceState.mode === 'animate';
+
+  if (!practiceState.mode) {
+    return `
+    <div class="pick-card" id="pickCard" style="min-height:72px;padding:16px 20px">
+      <div class="pc-empty" style="font-size:12px">Choose a category below to get your random sketch subject ↓</div>
+    </div>`;
+  }
+
+  if (!pick) {
+    return `
+    <div class="pick-card" id="pickCard" style="min-height:72px;padding:16px 20px">
+      <div class="pc-empty" style="font-size:12px">Good work! Tap Re-pick for another subject.</div>
+    </div>
+    <div class="pick-actions">
+      <button class="pick-btn repick" onclick="repick()">🎲 Re-pick</button>
+    </div>`;
+  }
+
+  return `
+  <div class="pick-card has-pick ${isAnim?'anim':''} pop-in" id="pickCard">
+    <div class="pc-prompt">Your sketch subject</div>
+    <div class="pc-category ${isAnim?'pc-cat-animate':'pc-cat-inanimate'}">${pick.cat}</div>
+    <div class="pc-object">${pick.name}</div>
+  </div>
+  <div class="pick-actions">
+    <button class="pick-btn repick" onclick="repick()">🎲 Re-pick</button>
+    <button class="pick-btn sketch ${isAnim?'anim':''}" onclick="startSketching()">✏ Start sketching</button>
+  </div>`;
+}
+
+function renderPickContent() {
+  const wrap = document.getElementById('pickCardWrap');
+  if (wrap) wrap.innerHTML = renderPickHTML();
+  // update history section by re-rendering full view but only updating history
+  // easier to just re-render the whole thing
+  renderPractice();
 }
 
 // ═══════════════════════════════════════

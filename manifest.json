@@ -4,8 +4,8 @@
   "description": "8-week CEED Part B drawing program with daily sessions",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0f0e0c",
-  "theme_color": "#E8611A",
+  "background_color": "#FFF5EE",
+  "theme_color": "#FF8894",
   "orientation": "any",
   "icons": [
     {
