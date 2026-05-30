@@ -790,11 +790,27 @@ let state = {
   lastActiveDate: null
 };
 
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+}
+
 function loadState() {
   try {
     const s = localStorage.getItem('ceed_state');
     if (s) Object.assign(state, JSON.parse(s));
   } catch(e) {}
+
+  // On load: check if streak should be broken (more than 1 day since last activity)
+  if (state.lastActiveDate && state.lastActiveDate !== todayStr()) {
+    const last = new Date(state.lastActiveDate.replace(/-/g, '/'));
+    const now  = new Date();
+    const diffDays = Math.round((now - last) / (1000 * 60 * 60 * 24));
+    if (diffDays > 1) {
+      state.streak = 0;
+      saveState();
+    }
+  }
 }
 
 function saveState() {
@@ -1002,10 +1018,43 @@ function toggleSession(key) {
   if (body) body.classList.toggle('open');
 }
 
+function updateStreak() {
+  // only count a day if at least one session is marked done
+  if (doneSessions() === 0) return;
+
+  const today = todayStr();
+
+  if (state.lastActiveDate === today) {
+    // already counted today — nothing to do
+    return;
+  }
+
+  if (state.lastActiveDate === null) {
+    // first ever session done
+    state.streak = 1;
+  } else {
+    // check if lastActiveDate was yesterday
+    const last = new Date(state.lastActiveDate.replace(/-/g, '/'));
+    const now  = new Date();
+    const diffDays = Math.round((now - last) / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 1) {
+      // consecutive day
+      state.streak += 1;
+    } else if (diffDays > 1) {
+      // streak broken
+      state.streak = 1;
+    }
+    // diffDays === 0 shouldn't happen here since we checked today above
+  }
+
+  state.lastActiveDate = today;
+}
+
 function markDone(key) {
   state.done[key] = !state.done[key];
+  updateStreak();
   saveState();
-  // refresh current view
   if (state.view === 'today') renderToday();
   else if (state.view === 'day') renderDay();
   document.getElementById('globalPct').textContent = globalPct() + '%';
@@ -1126,6 +1175,7 @@ function markAllDay(wIdx, dIdx) {
   WEEKS[wIdx].days[dIdx].sessions.forEach((_, sIdx) => {
     state.done[`${wIdx}_${dIdx}_${sIdx}`] = true;
   });
+  updateStreak();
   saveState();
   renderDay();
   document.getElementById('globalPct').textContent = globalPct() + '%';
